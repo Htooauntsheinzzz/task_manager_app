@@ -15,13 +15,10 @@ const port = process.env.PORT || 8000;
 
 const app = express();
 
-app.use(
-  cors({
-    origin: ["http://localhost:3000"],
-    methods: ["GET", "POST", "DELETE", "PUT"],
-    credentials: true,
-  })
-);
+app.use(cors({
+  origin: ['http://localhost:3000'], // Add all your frontend origins
+  credentials: true // This is important for cookies
+}));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
