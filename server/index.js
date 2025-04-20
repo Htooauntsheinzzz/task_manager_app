@@ -15,19 +15,20 @@ const port = process.env.PORT || 8000;
 
 const app = express();
 
+// Middleware should be defined BEFORE routes
 app.use(cors({
   origin: ['http://localhost:3000'], // Add all your frontend origins
   credentials: true // This is important for cookies
 }));
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 app.use(cookieParser());
-
 app.use(morgan("dev"));
+
+// Routes come after middleware
 app.use("/api", routes);
 
+// Error handling middleware should be last
 app.use(routeNotFound);
 app.use(errorHandler);
 
