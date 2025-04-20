@@ -17,7 +17,7 @@ const app = express();
 
 // Middleware should be defined BEFORE routes
 app.use(cors({
-  origin: ['http://localhost:3000'], // Add all your frontend origins
+  origin: ['http://localhost:3000' ,'https://symphonious-bublanina-3d75dc.netlify.app'], // Add all your frontend origins
   credentials: true // This is important for cookies
 }));
 app.use(express.json());
