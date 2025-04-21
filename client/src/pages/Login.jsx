@@ -96,7 +96,10 @@ const Login = () => {
                 })}
                 error={errors.password ? errors.password?.message : ""}
               />
-              <span className='text-sm text-gray-600 hover:underline cursor-pointer'>
+              <span 
+                className='text-sm text-gray-600 hover:underline cursor-pointer'
+                onClick={() => toast.info("This feature is not available at this time.")}
+              >
                 Forget Password?
               </span>
             </div>
