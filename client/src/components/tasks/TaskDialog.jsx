@@ -1,6 +1,6 @@
 import { Menu, Transition } from "@headlessui/react";
 import clsx from "clsx";
-import { Fragment, useState } from "react";
+import React, { Fragment, useState } from "react";
 import { AiTwotoneFolderOpen } from "react-icons/ai";
 import { BsThreeDots } from "react-icons/bs";
 import { FaExchangeAlt } from "react-icons/fa";
@@ -34,7 +34,7 @@ const CustomTransition = ({ children }) => (
   </Transition>
 );
 
-const ChangeTaskActions = ({ _id, stage }) => {
+const ChangeTaskActions = React.forwardRef(({ _id, stage }, ref) => {
   const [changeStage] = useChangeTaskStageMutation();
 
   const changeHanlder = async (val) => {
@@ -115,7 +115,7 @@ const ChangeTaskActions = ({ _id, stage }) => {
       </Menu>
     </>
   );
-};
+});
 
 export default function TaskDialog({ task }) {
   const { user } = useSelector((state) => state.auth);
@@ -177,11 +177,6 @@ export default function TaskDialog({ task }) {
       label: "Edit",
       icon: <MdOutlineEdit className='mr-2 h-5 w-5' aria-hidden='true' />,
       onClick: () => setOpenEdit(true),
-    },
-    {
-      label: "Add Sub-Task",
-      icon: <MdAdd className='mr-2 h-5 w-5' aria-hidden='true' />,
-      onClick: () => setOpen(true),
     },
     {
       label: "Duplicate",

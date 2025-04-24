@@ -194,8 +194,8 @@ const AddTask = ({ open, setOpen, task }) => {
                     accept='.jpg, .png, .jpeg'
                     multiple={true}
                   />
-                  <BiImages />
-                  <span>Add Assets</span>
+                  {/* <BiImages /> */}
+                  {/* <span>Add Assets</span> */}
                 </label>
               </div>
             </div>
