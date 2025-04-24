@@ -211,6 +211,7 @@ const updateSubTaskStage = asyncHandler(async (req, res) => {
 
 const createSubTask = asyncHandler(async (req, res) => {
   const { title, tag, date } = req.body;
+  console.log(req.params);
   const { id } = req.params;
 
   try {
@@ -228,8 +229,7 @@ const createSubTask = asyncHandler(async (req, res) => {
     await task.save();
 
     res
-      .status(200)
-      .json({ status: true, message: "SubTask added successfully." });
+      .status(200).json({ status: true, message: "SubTask added successfully." });
   } catch (error) {
     return res.status(400).json({ status: false, message: error.message });
   }
